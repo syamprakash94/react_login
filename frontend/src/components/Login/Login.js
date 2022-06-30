@@ -38,7 +38,7 @@ function BasicExample() {
               
                console.log(data);
              localStorage.setItem("userInfo",JSON.stringify(data))
-            //  setLoading(false)
+            
             
                navigate('/mynotes')
              
