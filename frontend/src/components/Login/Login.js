@@ -1,44 +1,54 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./Login.css";
 import axios from "axios";
+import {  useNavigate } from "react-router-dom";
 
 function BasicExample() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const navigate=useNavigate()
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
 
-    try {
-      const config = {
-        headers: {
-          "Content-type": "aplication/json",
-        },
-      };
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
 
-      setLoading(true);
-
-      const { data } = await axios.post(
-        "/api/users/login",
-        {
-          email,
-          password,
-        },
-        config
-      );
-
-      console.log(data);
-
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      setLoading(false);
-    } catch (error) {
-      setError(error.response.data.message);
+    if (userInfo){
+     navigate('/mynotes')
     }
-  };
+  }, [])
+  
+
+  const submitHandler= async (e)=>{
+    e.preventDefault()
+    console.log(email,password);
+    try {
+     const config={
+       headers: {
+         "Content-type": "application/json",
+       }
+     }
+            //  setLoading(true)
+             const {data} = await axios.post('/api/users/login',{
+               email,
+               password
+             },config)
+              
+               console.log(data);
+             localStorage.setItem("userInfo",JSON.stringify(data))
+            //  setLoading(false)
+            
+               navigate('/mynotes')
+             
+ 
+    } catch (error) {
+     setError(error.response.data.message)
+    //  setLoading(false)
+     
+    }
+   }
 
   return (
     <div className="Login">
@@ -52,14 +62,16 @@ function BasicExample() {
                 <Form.Control
                   type="email"
                   value={email}
+                  name='email'
                   placeholder="Enter email"
                   onChange={(e) => setEmail(e.target.value)}
-                />
+                /><p>{error}</p>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
+                name="password"
                   type="password"
                   value={password}
                   placeholder="Password"
@@ -70,7 +82,7 @@ function BasicExample() {
               <Button variant="primary" type="submit">
                 Submit
               </Button>
-              <div>New Customer? Register Here</div>
+              <div>New Customer? <a href="/signup">Register Here</a></div>
             </Form>
           </div>
         </div>

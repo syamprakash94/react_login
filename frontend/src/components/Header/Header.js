@@ -3,9 +3,11 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
+import { useNavigate } from "react-router-dom";
 
 function NavScrollExample() {
+
+  const navigate = useNavigate()
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
@@ -29,7 +31,10 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Logout</Nav.Link>
+            <Nav.Link onClick={() => {
+              localStorage.removeItem("userInfo")
+              navigate('/login')
+            }}>Logout</Nav.Link>
             
              
            
