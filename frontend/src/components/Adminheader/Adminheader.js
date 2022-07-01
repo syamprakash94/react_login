@@ -13,7 +13,7 @@ function NavScrollExample() {
   return (
     <Navbar  bg="primary" expand="lg">
       <Container>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#">ADMIN</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav 
@@ -29,15 +29,7 @@ function NavScrollExample() {
             
           
           </Nav>
-          {/* <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            
-          </Form> */}
+         
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -2,6 +2,7 @@ import React from "react";
 import Adminheader from "../components/Adminheader/Adminheader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Table from "../components/Table/Table";
 
 function Adminhome() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function Adminhome() {
   return (
     <div>
       <Adminheader />
+      <Table />
     </div>
   );
 }

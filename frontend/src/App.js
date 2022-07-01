@@ -8,6 +8,8 @@ import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Adminlogin from "./components/Adminlogin/Adminlogin";
 import Adminhome from "./pages/Adminhome";
+import Table from "./components/Table/Table";
+import Useredit from "./components/Useredit/Useredit"
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +21,8 @@ function App() {
         <Route path="/adminheader" element={<Adminheader/>}></Route>
         <Route path="/admin" element={<Adminlogin/>}></Route>
         <Route path="/adminhome" element={<Adminhome/>}></Route>
+        <Route path="/table" element={<Table/>}></Route>
+        <Route path="/adminhome/edituser/:userid" element={<Useredit/>}></Route>
       </Routes>
     </BrowserRouter>
   );
