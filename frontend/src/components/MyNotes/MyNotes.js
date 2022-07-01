@@ -1,7 +1,8 @@
 import React from 'react'
-
+import "./MyNotes.css"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Container from 'react-bootstrap/esm/Container';
 
 const Mynotes = () => {
 
@@ -14,8 +15,9 @@ const Mynotes = () => {
  })
 
   return (
-
-    <div title='WELCOME'>WELCOME</div>
+<Container>
+    <div className='welcome'>WELCOME</div>
+    </Container>
   )
 }
 

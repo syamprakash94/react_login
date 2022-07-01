@@ -30,9 +30,9 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 const authUser = asyncHandler(async (req, res) => {
-  console.log("ggggg",req.body);
+  console.log("ggggg", req.body);
   const { email, password } = req.body;
-  console.log("fd",email,password);
+  console.log("fd", email, password);
 
   const user = await User.findOne({ email });
   console.log(user);
@@ -42,7 +42,7 @@ const authUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      token:generateToken(user._id),
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -62,7 +62,7 @@ const userdatails = asyncHandler(async (req, res) => {
 });
 
 const userinfo = asyncHandler(async (req, res) => {
-  console.log("joofh",req.params.userId);
+  console.log("joofh", req.params.userId);
   const user = await User.findById(req.params.userId);
   if (user) {
     console.log(user);
@@ -77,16 +77,53 @@ const usernewinfo = asyncHandler(async (req, res) => {
   try {
     const email = req.body.email;
     const name = req.body.name;
-    const id=req.params.userid
-console.log("jjjjjj",email,name,id);
+    const id = req.params.userid;
+    console.log("jjjjjj", email, name, id);
     const user = await User.findByIdAndUpdate(id, {
       name: name,
       email: email,
     });
     res.json(user);
     console.log(user);
-  } catch (error) {
+  } catch (error) {}
+});
 
+const deleteUser = asyncHandler(async (req, res, next) => {
+
+  try {
+    const user = await User.findById(req.query.id);
+    await user.remove();
+    res.json({});
+  } catch (error) {
+    res.json(error);
   }
 });
-module.exports = { registerUser, authUser,userdatails,userinfo,usernewinfo };
+
+// const search = asyncHandler(async(req,res,next)=>{
+//   try {
+    
+//   } catch (error) {
+    
+//   }
+// })
+// searchUser: (search) => {
+//         return new Promise(async (resolve, reject) => {
+//             console.log(search);
+//             let keyword = (search == "nofilter" ) ? {} : { firstName: { $regex: search, $options: "i" } }
+//             console.log("  <====.....  " + keyword + "  ........>");
+//             await User.find(keyword).then((resp) => {
+//                 console.log(resp);
+//                 resolve(resp)
+//             })
+//         })
+//     }
+
+module.exports = {
+  registerUser,
+  authUser,
+  userdatails,
+  userinfo,
+  usernewinfo,
+  deleteUser,
+   
+};

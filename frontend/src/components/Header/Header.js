@@ -15,7 +15,7 @@ function NavScrollExample() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
             <Nav className='m-auto'>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -23,7 +23,7 @@ function NavScrollExample() {
               aria-label="Search"
             />
            
-          </Form>
+          </Form> */}
 
             </Nav>
           <Nav

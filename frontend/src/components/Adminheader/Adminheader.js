@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from "react-router-dom";
+import "../Adminheader/Adminheader.css";
 
 function NavScrollExample() {
 
@@ -13,7 +14,7 @@ function NavScrollExample() {
   return (
     <Navbar  bg="primary" expand="lg">
       <Container>
-        <Navbar.Brand href="#">ADMIN</Navbar.Brand>
+        <Navbar.Brand href="#" className=' text-light'>ADMIN</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav 
@@ -21,7 +22,7 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link onClick={() => {
+            <Nav.Link className=' logout text-light ' onClick={() => {
               localStorage.removeItem("adminInfo")
               navigate('/admin')
             }}>Logout</Nav.Link>
