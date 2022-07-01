@@ -5,3 +5,10 @@
 .table{
     margin-top: 50px; 
 }
+.editbutton1{
+    border-color: white;
+}
+.editbutton2{
+    border-color:rgb(18, 115, 179);
+    margin-left: 10px;
+}

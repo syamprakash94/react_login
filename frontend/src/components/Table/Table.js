@@ -110,14 +110,14 @@ function UserTable() {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>
-                <button
+                <button className=" bg-primary editbutton1"
                   onClick={() => {
                     editHandler(user._id);
                   }}
                 >
                   Edit
                 </button>
-                <button
+                <button className=" bg-light editbutton2"
                   onClick={() => {
                     deleteuser(user._id);
                   }}
