@@ -65,7 +65,7 @@ function BasicExample() {
             <Form onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="Name" value={name} placeholder="Enter name" 
+                <Form.Control required type="Name" value={name} placeholder="Enter name" 
                 onChange={(e) => setName(e.target.value)}
                 />
                
@@ -73,7 +73,7 @@ function BasicExample() {
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" value={email} placeholder="Enter email" 
+                <Form.Control required type="email" value={email} placeholder="Enter email" 
                 onChange={(e) => setEmail(e.target.value)}
                 />
                
@@ -81,14 +81,14 @@ function BasicExample() {
               {message && <p style={{"color":"red"}}>{message}</p>}
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" value={password} placeholder="Password" 
+                <Form.Control required type="password" value={password} placeholder="Password" 
                 onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" value={confirmpassword} placeholder="Confirm Password" 
+                <Form.Control required type="password" value={confirmpassword} placeholder="Confirm Password" 
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Form.Group>
