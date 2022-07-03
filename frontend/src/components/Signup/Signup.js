@@ -65,7 +65,7 @@ function BasicExample() {
             <Form onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Name</Form.Label>
-                <Form.Control required type="Name" value={name} placeholder="Enter name" 
+                <Form.Control required type="text" value={name} placeholder="Enter name" 
                 onChange={(e) => setName(e.target.value)}
                 />
                
